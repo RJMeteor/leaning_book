@@ -5,6 +5,7 @@ import { defineUserConfig } from 'vuepress'
 export default defineUserConfig({
     // 请不要忘记设置默认语言
     lang: 'zh-CN',
+    dest:"src/.vuepress/dist",
     bundler: viteBundler({
         viteOptions: {},
         vuePluginOptions: {},
