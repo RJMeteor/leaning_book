@@ -5,7 +5,10 @@ import { defineUserConfig } from 'vuepress'
 export default defineUserConfig({
     // 请不要忘记设置默认语言
     lang: 'zh-CN',
-    bundler: viteBundler(),
+    bundler: viteBundler({
+        viteOptions: {},
+        vuePluginOptions: {},
+    }),
     theme,
     pagePatterns: ['**/*.md', '!**/*.snippet.md', '!.vuepress', '!node_modules'],
 })
