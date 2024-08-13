@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "vuepress dev docs",
-    "build": "vuepress build docs --output ./dist"
+    "build": "vuepress build docs"
   },
   "author": "",
   "license": "ISC",
