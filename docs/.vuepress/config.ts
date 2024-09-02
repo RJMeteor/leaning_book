@@ -6,7 +6,7 @@ export default defineUserConfig({
     // 请不要忘记设置默认语言
     base:"/leaning_book/",
     lang: 'zh-CN',
-    dest:"src/.vuepress/dist",
+    // dest:"src/.vuepress/dist",
     bundler: viteBundler({
         viteOptions: {},
         vuePluginOptions: {},
