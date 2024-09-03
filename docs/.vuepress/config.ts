@@ -4,7 +4,7 @@ import { defineUserConfig } from 'vuepress'
 
 export default defineUserConfig({
     // 请不要忘记设置默认语言
-    base:"/leaning_book/",
+    base: "/leaning_book/",
     lang: 'zh-CN',
     // dest:"src/.vuepress/dist",
     bundler: viteBundler({
@@ -13,4 +13,7 @@ export default defineUserConfig({
     }),
     theme,
     pagePatterns: ['**/*.md', '!**/*.snippet.md', '!.vuepress', '!node_modules'],
+    locales: {
+        '/': { lang: 'zh-CN', title: 'RJMeteor TIB', description: '热爱编程' },
+    },
 })
