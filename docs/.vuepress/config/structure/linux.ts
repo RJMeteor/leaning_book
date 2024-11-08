@@ -1,4 +1,5 @@
 import { NavItem, NoteItem } from "vuepress-theme-plume";
+import links from "../links";
 
 
 export const linuxNavbars: NavItem = {
@@ -13,19 +14,6 @@ export const linuxNavbars: NavItem = {
 export const linuxSlibars:NoteItem =  {
     dir: "linux",
     link: "/linux/",
-    text: "linux操作系统",
-    sidebar: [
-        {
-            text: "shell编程",
-            prefix: "shell",
-            collapsed: false,
-            items: "auto"
-        },
-        {
-            text: "docker部署",
-            prefix: "docker",
-            collapsed: true,
-            items: "auto"
-        }
-    ]
+    text: "Linux操作系统",
+    sidebar: [...links.getLink(links,"Linux操作系统").items]
 }

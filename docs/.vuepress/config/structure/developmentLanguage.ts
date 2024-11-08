@@ -1,4 +1,5 @@
 import { NavItem, NoteItem } from "vuepress-theme-plume";
+import links from "../links";
 
 
 export const developmentLanguageNavbars: NavItem = {
@@ -12,19 +13,6 @@ export const developmentLanguageNavbars: NavItem = {
 export const developmentLanguageSlibars:NoteItem =   {
     dir: "developmentLanguage",
     link: "/developmentLanguage/",
-    text: "开发语言",
-    sidebar: [
-        {
-            text: "java",
-            prefix: "java",
-            collapsed: true,
-            items: [
-                {
-                    text:"spring框架",
-                    collapsed:true,
-                    items:"auto",
-                }
-            ]
-        }
-    ]
+    text: "后端开发语言",
+    sidebar: [...links.getLink(links,"后端开发语言").items]
 }

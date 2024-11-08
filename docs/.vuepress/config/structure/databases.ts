@@ -1,4 +1,5 @@
 import { NavItem, NoteItem } from "vuepress-theme-plume";
+import links from "../links";
 
 
 export const databasesNavbars: NavItem = {
@@ -13,19 +14,6 @@ export const databasesNavbars: NavItem = {
 export const databasesSlibars:NoteItem =  {
     dir: "databases",
     link: "/databases/",
-    text: "常用数据库",
-    sidebar: [
-        {
-            text: "mysql",
-            prefix: "mysql",
-            collapsed: true,
-            items: "auto"
-        },
-        {
-            text: "redis",
-            prefix: "redis",
-            collapsed: true,
-            items: "auto"
-        }
-    ]
+    text: "数据库",
+    sidebar: [...links.getLink(links,"数据库").items]
 }
