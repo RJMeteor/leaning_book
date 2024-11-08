@@ -5,11 +5,11 @@ export default {
     newDeep(target: any, check: string) {
         const flag = {
             text: check,
-            collapsed: true,
         }
         if (Object.is(this.getType(target[check]), "Object")) {
             return {
                 ...flag,
+                collapsed: true,
                 items: []
             }
         } else {
@@ -21,13 +21,13 @@ export default {
     },
     getLink(resource: any, name: string) {
         let target = resource[name];
-        const loopTarget = this.newDeep(target, name);
+        const loopTarget = this.newDeep(resource, name);
         for (let item in target) {
             const ele = this.newDeep(target, item)
             if (Reflect.ownKeys(loopTarget).includes("items")) loopTarget.items.push(ele)
             if (Reflect.ownKeys(ele).includes("items")) {
                 for (const eleKey in target[item]) {
-                    ele.items.push(this.getLink(target[item][eleKey]))
+                    ele.items.push(this.getLink(target[item],eleKey))
                 }
             }
         }

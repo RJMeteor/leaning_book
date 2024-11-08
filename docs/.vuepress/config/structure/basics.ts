@@ -8,8 +8,10 @@ export const basicsNavbars: NavItem = {
     items: [
         {text: '基础知识', link: '/pages/basics/basicKnowledge/基础.md', icon: 'line-md:coffee-loop'},
         {text: '计算机网络', link: '/pages/basics/computerNetwork/', icon: 'jam:tools'},
+        // 栈
         {text: '数据结构', link: links.getLink(links,"数据结构").items[0].link, icon: 'carbon:friendship'},
-        {text: '算法', link: '/pages/basics/algorithm/', icon: 'carbon:friendship'},
+        // 排序
+        {text: '算法', link: links.getLink(links,"算法").items[0].link,icon: 'carbon:friendship'},
     ],
 }
 

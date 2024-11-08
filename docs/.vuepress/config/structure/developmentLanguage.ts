@@ -6,7 +6,7 @@ export const developmentLanguageNavbars: NavItem = {
     text: '开发语言',
     activeMatch: '^/pages/developmentLanguage/',
     items: [
-        { text: 'java', link: '/pages/developmentLanguage/java/', icon: 'line-md:coffee-loop' },
+        { text: 'java', link: links.getLink(links,"后端开发语言").items[0].items[0].items[0].link, icon: 'line-md:coffee-loop' },
     ],
 }
 

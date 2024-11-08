@@ -3,11 +3,11 @@ import links from "../links";
 
 
 export const linuxNavbars: NavItem = {
-    text: 'linux操作系统',
+    text: 'Linux操作系统',
     activeMatch: '^/pages/linux/',
     items: [
-        { text: 'shell编程', link: '/pages/linux/shell/', icon: 'line-md:coffee-loop' },
-        { text: 'docker部署', link: '/pages/linux/docker/', icon: 'line-md:coffee-loop' },
+        { text: 'Shell编程', link:  links.getLink(links,"Linux操作系统").items[0].items[0].link, icon: 'line-md:coffee-loop' },
+        { text: 'Docker部署', link:  links.getLink(links,"Linux操作系统").items[1].items[0].link, icon: 'line-md:coffee-loop' },
     ],
 }
 

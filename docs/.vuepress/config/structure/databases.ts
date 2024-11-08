@@ -6,8 +6,8 @@ export const databasesNavbars: NavItem = {
     text: '数据库',
     activeMatch: '^/pages/databases/',
     items: [
-        { text: 'mysql', link: '/pages/databases/mysql/', icon: 'line-md:coffee-loop' },
-        { text: 'redis', link: '/pages/databases/redis/', icon: 'jam:tools' },
+        { text: 'MySQL', link: links.getLink(links,"数据库").items[0].items[0].link, icon: 'line-md:coffee-loop' },
+        { text: 'Redis', link: links.getLink(links,"数据库").items[1].items[0].link, icon: 'jam:tools' },
     ],
 }
 
