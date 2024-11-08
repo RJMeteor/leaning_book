@@ -6,8 +6,8 @@ export const linuxNavbars: NavItem = {
     text: 'Linux操作系统',
     activeMatch: '^/leaning_book/linux/',
     items: [
-        { text: 'Shell编程', link:  links.getLink(links,"Linux操作系统").items[0].items[0].link, icon: 'line-md:coffee-loop' },
-        { text: 'Docker部署', link:  links.getLink(links,"Linux操作系统").items[1].items[0].link, icon: 'line-md:coffee-loop' },
+        { text: 'Shell编程', link: "/linux/Shell/7t92c9nx/", },
+        { text: 'Docker部署', link: "/linux/Docker/7t92c9nx/", },
     ],
 }
 

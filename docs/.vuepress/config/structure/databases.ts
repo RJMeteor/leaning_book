@@ -6,8 +6,9 @@ export const databasesNavbars: NavItem = {
     text: '数据库',
     activeMatch: '^/leaning_book/databases/',
     items: [
-        { text: 'MySQL', link: links.getLink(links,"数据库").items[0].items[0].link, icon: 'line-md:coffee-loop' },
-        { text: 'Redis', link: links.getLink(links,"数据库").items[1].items[0].link, icon: 'jam:tools' },
+        { text: 'MySQL', link: "/databases/MySQL/7t92c9nx/", },
+        { text: 'Redis', link: "/databases/Redis/7t92c9nx/", },
+        { text: "MongoDB", link: "/databases/MongoDB/7t92c9nx/",},
     ],
 }
 

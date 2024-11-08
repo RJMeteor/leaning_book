@@ -125,7 +125,7 @@ export default {
             "基础":"/webframe/engineer/7t92c9nx/",
         },
         'Vue开发框架': {
-            "基础":"",
+            "基础":"/webframe/Vue/7t92c9nx/",
         },
         'React开发框架': {
             "基础":"/webframe/React/7t92c9nx/",
