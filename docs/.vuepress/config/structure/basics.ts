@@ -4,7 +4,7 @@ import links from "../links";
 
 export const basicsNavbars: NavItem = {
     text: '计算机基础',
-    activeMatch: '^/pages/basics/',
+    activeMatch: '^/leaning_book/basics/',
     items: [
         {text: '基础知识', link: '/pages/basics/basicKnowledge/基础.md', icon: 'line-md:coffee-loop'},
         {text: '计算机网络', link: '/pages/basics/computerNetwork/', icon: 'jam:tools'},

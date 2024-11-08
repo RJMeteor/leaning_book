@@ -4,7 +4,7 @@ import links from "../links";
 
 export const webframeNavbars: NavItem = {
     text: '前端开发',
-    activeMatch: '^/pages/webframe/',
+    activeMatch: '^/leaning_book/webframe/',
     items: [
         { text: '前端开发基础', link: links.getLink(links,"前端开发").items[0].items[0].link, icon: 'line-md:coffee-loop' },
         { text: '前端工程化', link: links.getLink(links,"前端开发").items[1].items[0].link, icon: 'line-md:coffee-loop' },

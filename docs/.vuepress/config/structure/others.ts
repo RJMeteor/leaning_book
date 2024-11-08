@@ -4,7 +4,7 @@ import links from "../links";
 
 export const othersNavbars: NavItem = {
     text: '其他',
-    activeMatch: '^/others/',
+    activeMatch: '^/leaning_book/others/',
     link: links.getLink(links,"其他").items[0].link,
 }
 
