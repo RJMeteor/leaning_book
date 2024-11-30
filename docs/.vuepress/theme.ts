@@ -1,16 +1,28 @@
 import process from 'node:process'
-import { plumeTheme } from 'vuepress-theme-plume'
-import type { Theme } from 'vuepress'
+import type {Theme} from 'vuepress'
+import { hopeTheme } from "vuepress-theme-hope";
 
-export const theme: Theme = plumeTheme({
-  logo:"/feiji.svg",
-  plugins: {
-    shiki: { twoslash: true },
-    markdownPower: {
-      icons: true,
+import { slibars } from './config/slibars'
+import { navbars } from './config/navbars'
+
+export const theme: Theme = hopeTheme({
+    logo:"/feiji.svg",
+    breadcrumb:false,
+    plugins: {
+        searchPro: true,
+        shiki: {
+            // 你想要使用的主题
+            themes: {
+                light: "one-light",
+                dark: "one-dark-pro",
+            },
+        },
     },
-  },
-  social: [
-    { icon: 'github', link: 'https://github.com/RJMeteor/leaning_book' }
-  ],
-})
+    // 主题配置
+    navbarLayout: {
+        start: ["Brand"],
+        end: ["Links","Language", "Repo", "Outlook", "Search"],
+    },
+    navbar:navbars,
+    sidebar:slibars
+});

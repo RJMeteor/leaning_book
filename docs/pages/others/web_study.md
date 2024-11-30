@@ -65,6 +65,10 @@ permalink: /others/webstudy/
 - [Lucide 反应 |琉璃酮 --- Lucide React | Lucide(图标库)](https://lucide.dev/guide/packages/lucide-react)
 - [🚀🚀🚀 量大管饱，一次性推荐20个React组件库！！-阿里云开发者社区 (aliyun.com)](https://developer.aliyun.com/article/1362702)
 
+### Uni App
+- [uview 对标Vue2(https://v1.uviewui.com/)
+- [uview Plus 对标Vue3](https://uview-plus.jiangruyi.com/)
+
 ## 工具库 - [npm](https://www.npmjs.com/)
 
 - [Editor.js (editorjs.io)](https://editorjs.io/)

@@ -1,21 +1,24 @@
-import {NavItem, NoteItem} from "vuepress-theme-plume";
 import links from "../links";
+import {
+    NavbarGroupOptions,
+    NavbarLinkOptions,
+    SidebarArrayOptions,
+    SidebarItemOptions,
+    SidebarOptions
+} from "vuepress-theme-hope";
 
 
-export const developmentLanguageNavbars: NavItem = {
+export const developmentLanguageNavbars: (NavbarLinkOptions | NavbarGroupOptions) = {
     text: '开发语言',
-    activeMatch: '^/leaning_book/developmentLanguage/',
-    items: [
+    activeMatch: '^/java/',
+    children: [
         {
             text: 'Java',
-            link: "/developmentLanguage/java/basics/7t92c9nx/"
+            link: "/java/7t92c9nx/"
         },
     ],
 }
 
-export const developmentLanguageSlibars: NoteItem = {
-    dir: "developmentLanguage",
-    link: "/developmentLanguage/",
-    text: "后端开发语言",
-    sidebar: [...links.getLink(links, "后端开发语言").items]
+export const javaSlibars: any = {
+    "/java/": [...links.getLink(links["后端开发语言"], "Java").children]
 }

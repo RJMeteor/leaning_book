@@ -9,8 +9,8 @@ export default {
         if (Object.is(this.getType(target[check]), "Object")) {
             return {
                 ...flag,
-                collapsed: true,
-                items: []
+                collapsible: true,
+                children: []
             }
         } else {
             return {
@@ -24,34 +24,35 @@ export default {
         const loopTarget = this.newDeep(resource, name);
         for (let item in target) {
             const ele = this.newDeep(target, item)
-            if (Reflect.ownKeys(loopTarget).includes("items")) loopTarget.items.push(ele)
-            if (Reflect.ownKeys(ele).includes("items")) {
+            if (Reflect.ownKeys(loopTarget).includes("children")) loopTarget.children.push(ele)
+            if (Reflect.ownKeys(ele).includes("children")) {
                 for (const eleKey in target[item]) {
-                    ele.items.push(this.getLink(target[item],eleKey))
+                    ele.children.push(this.getLink(target[item],eleKey))
                 }
             }
         }
         return loopTarget;
     },
     "数据结构": {
-        "栈": "/basics/dataStructure/vd93czgm/",
-        "队列": "/basics/dataStructure/vd93dcgm/",
-        "链表": "/basics/dataStructure/vd93lcgm/",
-        "树": "/basics/dataStructure/vd93scgm/",
-        "图": "/basics/dataStructure/vd93tcgm/",
+        "栈": "/basic/vd93czgm/",
+        "队列": "/basic/vd93dcgm/",
+        "链表": "/basic/vd93lcgm/",
+        "树": "/basic/vd93scgm/",
+        "图": "/basic/vd93tcgm/",
     },
     "算法": {
         "排序": {
-            "冒泡排序": "/basics/algorithm/sort/m3foubll/",
-            "选择排序": "/basics/algorithm/sort/rjs72r6u/",
-            "插入排序": "/basics/algorithm/sort/7mdber5g/",
-            "希尔排序": "/basics/algorithm/sort/5zzc68z1/",
-            "归并排序": "/basics/algorithm/sort/theey3ib/",
-            "快速排序": "/basics/algorithm/sort/dkzhql8g/",
-            "推排序": "/basics/algorithm/sort/xsys6q62/",
+            "冒泡排序": "/basic/m3foubll/",
+            "选择排序": "/basic/rjs72r6u/",
+            "插入排序": "/basic/7mdber5g/",
+            "希尔排序": "/basic/5zzc68z1/",
+            "归并排序": "/basic/theey3ib/",
+            "快速排序": "/basic/dkzhql8g/",
+            "推排序": "/basic/xsys6q62/",
         }
     },
     "其他": {
+        "Java资料": "/others/javazl/",
         "GitHub": "/others/bgt18a3c/",
         "学习渠道和工具": "/others/studyresource/",
         "Java收集": "/others/javastudy/",
@@ -59,93 +60,100 @@ export default {
     },
     "数据库": {
         "MySQL": {
-            "基础": "/databases/MySQL/7t92c9nx/"
+            "基础": "/7t92c9nx/"
         },
         "Redis": {
-            "基础": "/databases/Redis/7t92c9nx/"
+            "基础": "/7t92c9nx/"
         },
         "MongoDB": {
-            "基础": "/databases/MongoDB/7t92c9nx/"
+            "基础": "/7t92c9nx/"
         },
     },
     "后端开发语言": {
         "Java": {
             "Java基础": {
-                "基础": "/developmentLanguage/java/basics/7t92c9nx/",
-                "IO流": "/developmentLanguage/java/basics/i3dtdkfy/",
-                "JVM": "/developmentLanguage/java/basics/jpeeg4ew/",
-                "设计模式": "/developmentLanguage/java/basics/przrwqhp/",
-                "高并发": "/developmentLanguage/java/basics/9eerap60/",
+                "基础": "/java/7t92c9nx/",
+                "IO流": "/java/i3dtdkfy/",
+                "JVM": "/java/jpeeg4ew/",
+                "设计模式": "/java/przrwqhp/",
+                "高并发": "/java/9eerap60/",
+            },
+            "JavaFx":{
+                "基础":"/java/lmmbxrp9/",
+                "开始工作":"/java/e7uj38ay/",
+                "布局容器":"/java/2xpy1llu/",
+                "UI组件":"/java/o7h0s1fn/",
+                "FXML":"/java/6t9nz65s/",
             },
             "Maven": {
-                "基础": "/developmentLanguage/java/Maven/7t92c9nx/"
+                "基础": "/java/maven/"
             },
             "Tomcat": {
-                "基础": "/developmentLanguage/java/Tomcat/7t92c9nx/"
+                "基础": "/java/tomcat/"
             },
             "Spring": {
-                "基础": "/developmentLanguage/java/Spring/7t92c9nx/"
+                "基础": "/java/spring/"
             },
             "MyBatis": {
-                "基础": "/developmentLanguage/java/MyBatis/7t92c9nx/"
+                "基础": "/java/mybatis/"
             },
             "SpringBoot": {
-                "基础": "/developmentLanguage/java/SpringBoot/7t92c9nx/"
+                "基础": "/java/springboot/"
             },
             "RabbitMQ": {
-                "基础": "/developmentLanguage/java/RabbitMQ/7t92c9nx/"
+                "基础": "/java/rabbitmq/"
             },
             "Elasticsearch": {
-                "基础": "/developmentLanguage/java/ES/7t92c9nx/"
+                "基础": "/java/es/"
             },
             "Netty": {
-                "基础": "/developmentLanguage/java/Netty/7t92c9nx/"
+                "基础": "/java/netty/"
             },
             "Nginx": {
-                "基础": "/developmentLanguage/java/Nginx/7t92c9nx/"
+                "基础": "/java/nginx/"
             },
             "Zookeeper": {
-                "基础": "/developmentLanguage/java/Zookeeper/7t92c9nx/"
+                "基础": "/java/zookeeper/"
             },
             "Kafka": {
-                "基础": "/developmentLanguage/java/Kafka/7t92c9nx/"
+                "基础": "/java/kafka/"
             },
             "SpringCloud": {
-                "基础": "/developmentLanguage/java/SpringCloud/7t92c9nx/"
+                "基础": "/java/springcloud/"
             },
         },
     },
     "前端开发": {
         '前端开发基础': {
-            "CSS":"/webframe/basics/c7sc9bni/",
-            "HTML":"/webframe/basics/ksyg9p5e/",
-            "JS":"/webframe/basics/f6bfwjuw/",
+            "CSS":"/c7sc9bni/",
+            "HTML":"/ksyg9p5e/",
+            "JS":"/f6bfwjuw/",
         },
         '前端工程化': {
-            "基础":"/webframe/engineer/7t92c9nx/",
+            "基础":"/7t92c9nx/",
         },
         'Vue开发框架': {
-            "基础":"/webframe/Vue/7t92c9nx/",
+            "基础":"/7t92c9nx/",
         },
         'React开发框架': {
-            "基础":"/webframe/React/7t92c9nx/",
+            "基础":"/7t92c9nx/",
         },
         'Node开发': {
-            "基础":"/webframe/Node/7t92c9nx/",
+            "基础":"/7t92c9nx/",
         },
         'Svelet开发框架':{
-            "基础":"/webframe/Svelet/7t92c9nx/",
+            "基础":"/7t92c9nx/",
         },
         'Uniapp小程序开发': {
-            "基础":"/webframe/Uniapp/7t92c9nx/",
+            "基础":"/7t92c9nx/",
         },
     },
     "Linux操作系统": {
         "Shell": {
-            "基础": "/linux/Shell/7t92c9nx/"
+            "基础": "/7t92c9nx/"
         },
         "Docker": {
-            "基础": "/linux/Docker/7t92c9nx/"
+            "基础": "/7t92c9nx/"
         },
     }
 }

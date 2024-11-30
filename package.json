@@ -12,7 +12,12 @@
   "devDependencies": {
     "@iconify/json": "^2.2.235",
     "@vuepress/bundler-vite": "^2.0.0-rc.14",
+    "@vuepress/plugin-comment": "^2.0.0-rc.61",
+    "@vuepress/plugin-register-components": "^2.0.0-rc.54",
+    "sass-embedded": "^1.81.0",
+    "vue": "^3.5.13",
     "vuepress": "^2.0.0-rc.14",
-    "vuepress-theme-plume": "^1.0.0-rc.85"
+    "vuepress-plugin-search-pro": "^2.0.0-rc.59",
+    "vuepress-theme-hope": "^2.0.0-rc.59"
   }
 }
