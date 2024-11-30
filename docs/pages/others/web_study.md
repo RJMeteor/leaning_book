@@ -1,5 +1,5 @@
 ---
-title: GitHub
+title: 前端收集
 author: RJMeteor
 createTime: 2024/11/08 10:12:41
 permalink: /others/webstudy/

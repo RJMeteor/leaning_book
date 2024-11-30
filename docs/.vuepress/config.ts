@@ -1,9 +1,10 @@
-import { theme } from './theme';
-import { viteBundler } from '@vuepress/bundler-vite'
-import { defineUserConfig } from 'vuepress'
+import {theme} from './theme';
+import {viteBundler} from '@vuepress/bundler-vite'
+import {defineUserConfig} from 'vuepress'
 import {registerComponentsPlugin} from "@vuepress/plugin-register-components";
 import * as path from "node:path";
 import {commentPlugin} from "@vuepress/plugin-comment";
+import {blog} from "vuepress-theme-hope";
 
 export default defineUserConfig({
     // 请不要忘记设置默认语言
@@ -17,7 +18,7 @@ export default defineUserConfig({
     theme,
     pagePatterns: ['**/*.md', '!**/*.snippet.md', '!.vuepress', '!node_modules'],
     locales: {
-        '/': {lang: 'zh-CN', title: 'RJMeteor TIB', description: '热爱编程' },
+        '/': {lang: 'zh-CN', title: 'RJMeteor TIB', description: '热爱编程'},
     },
     plugins: [
         registerComponentsPlugin({
@@ -26,11 +27,11 @@ export default defineUserConfig({
         }),
         commentPlugin({
             provider: 'Giscus',
-            comment:true,
-            repo:"RJMeteor/leaning_book",
-            repoId:"R_kgDOMh1ScA",
-            category:"Announcements",
-            categoryId:"DIC_kwDOMh1ScM4CkwEZ",
+            comment: true,
+            repo: "RJMeteor/leaning_book",
+            repoId: "R_kgDOMh1ScA",
+            category: "Announcements",
+            categoryId: "DIC_kwDOMh1ScM4CkwEZ",
         }),
     ],
 })
