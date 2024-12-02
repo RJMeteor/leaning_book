@@ -6,6 +6,7 @@ import * as path from "node:path";
 import {commentPlugin} from "@vuepress/plugin-comment";
 import {blog} from "vuepress-theme-hope";
 
+
 export default defineUserConfig({
     // 请不要忘记设置默认语言
     base: "/leaning_book/",
