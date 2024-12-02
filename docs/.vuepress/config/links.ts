@@ -27,7 +27,7 @@ export default {
             if (Reflect.ownKeys(loopTarget).includes("children")) loopTarget.children.push(ele)
             if (Reflect.ownKeys(ele).includes("children")) {
                 for (const eleKey in target[item]) {
-                    ele.children.push(this.getLink(target[item],eleKey))
+                    ele.children.push(this.getLink(target[item], eleKey))
                 }
             }
         }
@@ -60,13 +60,13 @@ export default {
     },
     "数据库": {
         "MySQL": {
-            "基础": "/7t92c9nx/"
+            "基础": "/databases/mysql/"
         },
         "Redis": {
-            "基础": "/7t92c9nx/"
+            "基础": "/databases/redis/"
         },
         "MongoDB": {
-            "基础": "/7t92c9nx/"
+            "基础": "/databases/mongodb/"
         },
     },
     "后端开发语言": {
@@ -78,12 +78,12 @@ export default {
                 "设计模式": "/java/przrwqhp/",
                 "高并发": "/java/9eerap60/",
             },
-            "JavaFx":{
-                "基础":"/java/lmmbxrp9/",
-                "开始工作":"/java/e7uj38ay/",
-                "布局容器":"/java/2xpy1llu/",
-                "UI组件":"/java/o7h0s1fn/",
-                "FXML":"/java/6t9nz65s/",
+            "JavaFx": {
+                "基础": "/java/lmmbxrp9/",
+                "开始工作": "/java/e7uj38ay/",
+                "布局容器": "/java/2xpy1llu/",
+                "UI组件": "/java/o7h0s1fn/",
+                "FXML": "/java/6t9nz65s/",
             },
             "Maven": {
                 "Maven基础": "/java/mavenbasic/",
@@ -126,38 +126,38 @@ export default {
     },
     "前端开发": {
         '前端开发基础': {
-            "CSS":"/c7sc9bni/",
-            "HTML":"/ksyg9p5e/",
-            "JS":"/f6bfwjuw/",
+            "CSS": "/webframe/css/",
+            "HTML": "/webframe/html/",
+            "JS": "/webframe/javascript/",
         },
         '前端工程化': {
-            "monorepo":"/webframe/monorepo/",
-            "prettier":"/webframe/prettier/",
-            "eslint":"/webframe/eslint/",
-            "husky":"/webframe/husky/",
+            "monorepo": "/webframe/monorepo/",
+            "prettier": "/webframe/prettier/",
+            "eslint": "/webframe/eslint/",
+            "husky": "/webframe/husky/",
         },
         'Vue开发框架': {
-            "基础":"/7t92c9nx/",
+            "基础": "/webframe/vuebasic/",
         },
         'React开发框架': {
-            "基础":"/7t92c9nx/",
+            "基础": "/webframe/reactbasic/",
         },
         'Node开发': {
-            "基础":"/7t92c9nx/",
+            "基础": "/webframe/nodebasic/",
         },
-        'Svelet开发框架':{
-            "基础":"/7t92c9nx/",
+        'Svelet开发框架': {
+            "基础": "/webframe/sveletbasic/",
         },
         'Uniapp小程序开发': {
-            "基础":"/7t92c9nx/",
+            "基础": "/webframe/uniappbasic/",
         },
     },
     "Linux操作系统": {
         "Shell": {
-            "基础": "/7t92c9nx/"
+            "基础": "/linux/shellbasic/"
         },
         "Docker": {
-            "基础": "/7t92c9nx/"
+            "基础": "/linux/dockerbasic/"
         },
     }
 }

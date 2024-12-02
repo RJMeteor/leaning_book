@@ -8,11 +8,11 @@ export const webframeNavbars: (NavbarLinkOptions | NavbarGroupOptions) = {
     children: [
         {text: '前端开发基础', link: "/webframe/javascript/",},
         {text: '前端工程化', link: "/webframe/monorepo/",},
-        {text: 'Vue开发框架', link: "/webframe/Vue/7t92c9nx/",},
-        {text: 'React开发框架', link: "/webframe/React/7t92c9nx/",},
-        {text: 'Svelet开发框架', link: "/webframe/Svelet/7t92c9nx/",},
-        {text: 'Node开发', link: "/webframe/Node/7t92c9nx/",},
-        {text: 'Uniapp小程序开发', link: "/webframe/Uniapp/7t92c9nx/",},
+        {text: 'Vue开发框架', link: "/webframe/vuebasic/",},
+        {text: 'React开发框架', link: "/webframe/reactbasic/",},
+        {text: 'Svelet开发框架', link: "/webframe/sveletbasic/",},
+        {text: 'Node开发', link: "/webframe/nodebasic/",},
+        {text: 'Uniapp小程序开发', link: "/webframe/uniappbasic/",},
     ],
 }
 

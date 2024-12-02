@@ -9,7 +9,7 @@ import {
 
 export const developmentLanguageNavbars: (NavbarLinkOptions | NavbarGroupOptions) = {
     text: '开发语言',
-    activeMatch: '^/java/',
+    activeMatch: '^/leaning_book/java/',
     children: [
         {
             text: 'Java',
