@@ -7,7 +7,6 @@ import {
     SidebarOptions
 } from "vuepress-theme-hope";
 
-
 export const developmentLanguageNavbars: (NavbarLinkOptions | NavbarGroupOptions) = {
     text: '开发语言',
     activeMatch: '^/java/',

@@ -20,6 +20,10 @@ export const theme: Theme = hopeTheme({
     plugins: {
         // 头部导航栏搜索框
         searchPro: true,
+		markdownHint: {
+			// 这就是默认选项，所以你可以直接使用此功能
+			hint: true,
+		},
         shiki: {
             // 你想要使用的主题
             themes: {

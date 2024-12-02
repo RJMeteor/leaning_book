@@ -86,7 +86,8 @@ export default {
                 "FXML":"/java/6t9nz65s/",
             },
             "Maven": {
-                "基础": "/java/maven/"
+                "Maven基础": "/java/mavenbasic/",
+                "Maven多模块": "/java/mavenmodule/",
             },
             "Tomcat": {
                 "基础": "/java/tomcat/"
@@ -130,7 +131,10 @@ export default {
             "JS":"/f6bfwjuw/",
         },
         '前端工程化': {
-            "基础":"/7t92c9nx/",
+            "monorepo":"/webframe/monorepo/",
+            "prettier":"/webframe/prettier/",
+            "eslint":"/webframe/eslint/",
+            "husky":"/webframe/husky/",
         },
         'Vue开发框架': {
             "基础":"/7t92c9nx/",
