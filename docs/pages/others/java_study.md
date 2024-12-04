@@ -71,10 +71,7 @@ permalink: /others/javastudy/
 
 - [理解、学习与使用 JAVA 中的 Optional](https://www.cnblogs.com/zhangboyu/p/7580262.html)
 
-## 设计模式
-
-- [免费在线学习代码重构和设计模式](https://refactoringguru.cn/)
-- [java 23种设计模式 深入理解](https://www.cnblogs.com/foryang/p/5849402.html)
+- https://www.cnblogs.com/foryang/p/5849402.html)
 
 ## 面试
 
@@ -93,8 +90,6 @@ https://2pdf.com/zh/convert-jpg-to-pdf/
 
 - [Maven](https://maven.apache.org/)
 - [将jar包安装到maven仓库](https://www.cnblogs.com/laoyeye/p/8933185.html)
-
-
 
 ## Java工具
 

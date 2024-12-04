@@ -54,7 +54,7 @@ export default {
     "其他": {
         "Java资料": "/others/javazl/",
         "GitHub": "/others/bgt18a3c/",
-        "学习渠道和工具": "/others/studyresource/",
+        "效率工具": "/others/studyresource/",
         "Java收集": "/others/javastudy/",
         "前端收集": "/others/webstudy/",
     },
