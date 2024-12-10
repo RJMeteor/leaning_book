@@ -60,7 +60,11 @@ export default {
     },
     "数据库": {
         "MySQL": {
-            "基础": "/databases/mysql/"
+            "基础": "/databases/mysql/",
+            "Mysql有哪些锁？": "/databases/mysqllock/",
+            "什么是回表？": "/databases/mysqlhuibiao/",
+            "什么是MVCC？": "/databases/mysqlmvcc/",
+            "binlog、redo log和undo log详情": "/databases/mysqllog/"
         },
         "Redis": {
             "基础": "/databases/redis/"
