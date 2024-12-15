@@ -132,7 +132,10 @@ export default {
         '前端开发基础': {
             "CSS": "/webframe/css/",
             "HTML": "/webframe/html/",
-            "JS": "/webframe/javascript/",
+            "JavaScript":{
+                "JS": "/webframe/javascript/",
+                "WebRTC":"/webframe/webrtc/"
+            }
         },
         '前端工程化': {
             "monorepo": "/webframe/monorepo/",
