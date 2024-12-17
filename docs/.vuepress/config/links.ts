@@ -161,7 +161,8 @@ export default {
     },
     "Linux操作系统": {
         "Shell": {
-            "基础": "/linux/shellbasic/"
+            "基础命名": "/linux/shellbasic/",
+            "Shell脚本": "/linux/shellscript/",
         },
         "Docker": {
             "基础": "/linux/dockerbasic/"

@@ -1,11 +1,9 @@
 ---
-title: 基础
+title: Shell脚本
 author: RJMeteor
 createTime: 2024/11/08 04:41:42
-permalink: /linux/shellbasic/
+permalink: /linux/shellscript/
 ---
-
-
 
 ## 基本概念
 
