@@ -73,6 +73,32 @@ export default {
             "基础": "/databases/mongodb/"
         },
     },
+    "分布式": {
+        "Elasticsearch 搜索和分析引擎": {
+            "基础": "/bigdata/es/",
+        },
+        "Zookeeper 分布式协调服务": {
+            "基础": "/bigdata/zookeeper/",
+        },
+        "Dubbo 远程过程调用框架": {
+            "基础": "/bigdata/dubbo/",
+        },
+        "Kafka 分布式流处理平台": {
+            "基础": "/bigdata/kafka/",
+        },
+        "HDFS 分布式文件系统": {
+            "基础": "/bigdata/hdfs/",
+        },
+        "Flink 分布式流处理框架": {
+            "基础": "/bigdata/flink/",
+        },
+        "Spark 大数据处理框架": {
+            "基础": "/bigdata/spark/",
+        },
+        "Serverless 云计算架构": {
+            "基础": "/bigdata/serverless/",
+        },
+    },
     "后端开发语言": {
         "Java": {
             "Java基础": {
@@ -82,49 +108,46 @@ export default {
                 "设计模式": "/java/przrwqhp/",
                 "高并发": "/java/9eerap60/",
             },
-            "JavaFx": {
+            "JavaFx 构建富客户端应用程序": {
                 "基础": "/java/lmmbxrp9/",
                 "开始工作": "/java/e7uj38ay/",
                 "布局容器": "/java/2xpy1llu/",
                 "UI组件": "/java/o7h0s1fn/",
                 "FXML": "/java/6t9nz65s/",
             },
-            "Maven": {
+            "Maven 项目管理工具": {
                 "Maven基础": "/java/mavenbasic/",
                 "Maven多模块": "/java/mavenmodule/",
             },
-            "Tomcat": {
+            "Tomcat WEB服务器": {
                 "基础": "/java/tomcat/"
             },
-            "Spring": {
+            "Spring框架": {
                 "基础": "/java/spring/"
             },
-            "MyBatis": {
+            "MyBatis 数据持久化框架": {
                 "基础": "/java/mybatis/"
             },
-            "SpringBoot": {
+            "SpringBoot框架": {
                 "基础": "/java/springboot/"
             },
-            "RabbitMQ": {
+            "Minio 对象存储服务": {
+                "基础": "/java/minio/"
+            },
+            "RabbitMQ 消息队列": {
                 "基础": "/java/rabbitmq/"
             },
-            "Elasticsearch": {
-                "基础": "/java/es/"
-            },
-            "Netty": {
+            "Netty 网络编程框架": {
                 "基础": "/java/netty/"
             },
-            "Nginx": {
+            "Nginx 反向代理服务器": {
                 "基础": "/java/nginx/"
             },
-            "Zookeeper": {
-                "基础": "/java/zookeeper/"
-            },
-            "Kafka": {
-                "基础": "/java/kafka/"
-            },
-            "SpringCloud": {
+            "SpringCloud分布式框架": {
                 "基础": "/java/springcloud/"
+            },
+            "Cannal数据同步": {
+                "基础": "/java/cannal/"
             },
         },
     },
@@ -132,16 +155,16 @@ export default {
         '前端开发基础': {
             "CSS": "/webframe/css/",
             "HTML": "/webframe/html/",
-            "JavaScript":{
+            "JavaScript": {
                 "JS": "/webframe/javascript/",
-                "WebRTC":"/webframe/webrtc/"
+                "WebRTC": "/webframe/webrtc/"
             }
         },
         '前端工程化': {
-            "monorepo": "/webframe/monorepo/",
-            "prettier": "/webframe/prettier/",
-            "eslint": "/webframe/eslint/",
-            "husky": "/webframe/husky/",
+            "monorepo 项目代码架构": "/webframe/monorepo/",
+            "prettier 代码美化": "/webframe/prettier/",
+            "eslint 代码检查": "/webframe/eslint/",
+            "husky Git钩子": "/webframe/husky/",
         },
         'Vue开发框架': {
             "基础": "/webframe/vuebasic/",
@@ -164,7 +187,7 @@ export default {
             "基础命令": "/linux/shellbasic/",
             "Shell脚本": "/linux/shellscript/",
         },
-        "Docker": {
+        "Docker 容器化技术": {
             "基础": "/linux/dockerbasic/"
         },
     }

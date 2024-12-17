@@ -7,7 +7,7 @@ export const basicsNavbars: (NavbarLinkOptions | NavbarGroupOptions) = {
     activeMatch: '^/basics/',
     children: [
         // 栈
-        {text: '数据结构', link: "/basic/vd93czgm/",},
+        {text: '数据结构', link: "/basic/vd93czgm/"},
         // 排序
         {text: '算法', link: "/basic/m3foubll/",},
     ],

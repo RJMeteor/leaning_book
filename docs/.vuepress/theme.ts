@@ -35,7 +35,7 @@ export const theme: Theme = hopeTheme({
     // 主题配置
     navbarLayout: {
         start: ["Brand"],
-        end: ["Links","Repo","Outlook","Search"],
+        end: ["Links","Search","Outlook","Repo"],
     },
     // 顶部导航栏
     navbar:navbars,

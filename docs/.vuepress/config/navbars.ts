@@ -7,6 +7,7 @@ import {linuxNavbars} from './structure/linux'
 import {othersNavbars} from "./structure/others";
 import {NavbarOptions} from "vuepress-theme-hope";
 import links from "./links";
+import {bigdataNavbars} from "./structure/bigdata";
 
 /**
  * 定义顶部导航栏
@@ -17,5 +18,6 @@ export const navbars: NavbarOptions = [
     developmentLanguageNavbars, // java开发
     databasesNavbars, //数据库
     linuxNavbars, //服务器
+    bigdataNavbars, //分布式
     othersNavbars, // 其他
 ]
