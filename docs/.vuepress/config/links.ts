@@ -78,7 +78,8 @@ export default {
             "基础": "/bigdata/es/",
         },
         "Zookeeper 分布式协调服务": {
-            "基础": "/bigdata/zookeeper/",
+            "Zookeeper基础": "/bigdata/zookeeper/",
+            "Zookeeper集群": "/bigdata/zookeepercs/",
         },
         "Dubbo 远程过程调用框架": {
             "基础": "/bigdata/dubbo/",
@@ -86,7 +87,11 @@ export default {
         "Kafka 分布式流处理平台": {
             "基础": "/bigdata/kafka/",
         },
-        "HDFS 分布式文件系统": {
+		"Cannal数据同步": {
+                "基础": "/bigdata/cannal/",
+            },
+		"大数据":{
+			"HDFS 分布式文件系统": {
             "基础": "/bigdata/hdfs/",
         },
         "Flink 分布式流处理框架": {
@@ -95,6 +100,7 @@ export default {
         "Spark 大数据处理框架": {
             "基础": "/bigdata/spark/",
         },
+			},
         "Serverless 云计算架构": {
             "基础": "/bigdata/serverless/",
         },
@@ -145,9 +151,6 @@ export default {
             },
             "SpringCloud分布式框架": {
                 "基础": "/java/springcloud/"
-            },
-            "Cannal数据同步": {
-                "基础": "/java/cannal/"
             },
         },
     },

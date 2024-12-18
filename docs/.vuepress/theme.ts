@@ -17,6 +17,7 @@ export const theme: Theme = hopeTheme({
     repoLabel: "GitHub",
     // 是否在导航栏内显示仓库链接，默认为 `true`
     repoDisplay: true,
+    headerDepth: 6,
     plugins: {
         // 头部导航栏搜索框
         searchPro: true,
