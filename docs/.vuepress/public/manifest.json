@@ -1,0 +1,14 @@
+{
+  "short_name": "TIB",
+  "name": "RJMeteor TIB",
+  "icons": [
+    {
+      "src": "./love.png",
+      "type": "image/png",
+      "sizes": "144x144"
+    }
+  ],
+  "background_color": "#2196f3",
+  "display": "standalone",
+  "start_url": "/"
+}
