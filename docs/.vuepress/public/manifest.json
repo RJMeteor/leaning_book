@@ -3,12 +3,12 @@
   "name": "RJMeteor TIB",
   "icons": [
     {
-      "src": "./love.png",
+      "src": "/leaning_book/d.png",
       "type": "image/png",
       "sizes": "144x144"
     }
   ],
-  "background_color": "#2196f3",
+  "background_color": "#fff",
   "display": "standalone",
   "start_url": "/"
 }

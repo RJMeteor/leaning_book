@@ -8,6 +8,22 @@ import {blog} from "vuepress-theme-hope";
 
 
 export default defineUserConfig({
+    head: [
+        [
+            "link",
+            {
+                "rel": "icon",
+                "href": "/leaning_book/feiji.svg"
+            }
+        ],
+        [
+            "link",
+            {
+                "rel": "manifest",
+                "href": "/leaning_book/manifest.json"
+            }
+        ]
+    ],
     // 请不要忘记设置默认语言
     base: "/leaning_book/",
     lang: 'zh-CN',
@@ -22,10 +38,19 @@ export default defineUserConfig({
         '/': {lang: 'zh-CN', title: 'RJMeteor TIB', description: '热爱编程'},
     },
     plugins: [
+        // 支持pwa
+        [
+            "@vuepress/pwa",
+            {
+                "serviceWorker": true,
+            }
+        ],
+        // 全局注册自定义组件
         registerComponentsPlugin({
             // 配置项
             componentsDir: path.resolve(__dirname, './components')
         }),
+        // 开启文章评论功能
         commentPlugin({
             provider: 'Giscus',
             comment: true,

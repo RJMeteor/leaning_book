@@ -5,10 +5,6 @@ export default defineClientConfig({
     enhance({app, router, siteData}) {
         // 在这里可以注册全局组件或者添加路由守卫
         router.beforeEach((to, from, next) => {
-            const link = document.createElement("link");
-            link.rel = "manifest";
-            link.href = "/leaning_book/manifest.json";
-            document.head.append(link);
             // 在这里执行你的逻辑
             // 如果需要拦截跳转，可以不调用next或者调用next(false)
             if (Object.is(to.path, "/")) {
