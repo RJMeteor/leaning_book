@@ -160,7 +160,11 @@ export default {
             "HTML": "/webframe/html/",
             "JavaScript": {
                 "JS": "/webframe/javascript/",
-                "WebRTC": "/webframe/webrtc/"
+                "DOM": "/webframe/dom/",
+                "加载资源": "/webframe/loads/",
+                "原型链": "/webframe/prototype/",
+                "Promise": "/webframe/promise/",
+                "WebRTC": "/webframe/webrtc/",
             }
         },
         '前端工程化': {
