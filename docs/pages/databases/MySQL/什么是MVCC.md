@@ -31,6 +31,10 @@ MVCC全称是Multi-Version Concurrency Control（多版本并发控制），是�
 
 不可重复读与幻读的区别是： 不可重复读是读到了其他事务执行update、delete后的数据，而幻读是读到其他事务执行insert后的数据。
 
+`读已提交`：同一个事务中，多次执行查询会重新生成新的`readView`
+
+`可重复读`：同一个事务中，多次执行查询不会生成新的`readView`，沿用第一次执行查询产生的`readView`
+
 - Read UnCommitted（读未提交）： 读到其他事务未提交的数据，会出现脏读、不可重复读、幻读。
 
 - Read Committed（读已提交）： 读到其他事务已提交的数据，解决了脏读，会出现不可重复读、幻读。
@@ -54,7 +58,7 @@ MVCC解决了读已提交中的问题**不可重复读**。
 
 MVCC只在Read Committed和Repeatable Read两个隔离级别下起作用，因为Read UnCommitted隔离级别下，读写都不加锁，Serializable隔离级别下，读写都加锁，也就不需要MVCC了。
 
-### 4.1 当前读和快照读
+### 3.1 当前读和快照读
 
 - 当前读： 读取数据的最新版本，并对数据进行加锁。
 
@@ -76,7 +80,7 @@ MVCC只在Read Committed和Repeatable Read两个隔离级别下起作用，因�
 
   ![](./images/mysqlmvcc.png)
 
-### 4.2 **什么是readview呢？**
+### 3.2 **什么是readview呢？**
 
 ::: tip
 

@@ -164,6 +164,7 @@ export default {
                 "加载资源": "/webframe/loads/",
                 "原型链": "/webframe/prototype/",
                 "Promise": "/webframe/promise/",
+                "二进制数据": "/webframe/erdata/",
                 "WebRTC": "/webframe/webrtc/",
             }
         },

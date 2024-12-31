@@ -874,9 +874,9 @@ alert( `Called ${sayHi.counter} times` ); // Called 2 times
 
 ## 18. 装饰器模式和转发
 
-### 18.1 **使用 “call” 设定上下文**
+> call、apply、bind都可以改变函数的this指向，但call和apply会立即执行函数，bind不会立即执行函数而是返回新函数。
 
-不适用于对象方法。
+### 18.1 call
 
 ~~~javascript
 func.call(context, arg1, arg2, ...)
@@ -905,15 +905,13 @@ sayHi.call( admin ); // Admin
 func.apply(context, args)
 ~~~
 
-它运行 `func` 设置 `this=context`，并使用类数组对象 `args` 作为参数列表（arguments）。
+它运行 `func` 设置 `this=context`，并使用类数组对象 `args`是一个列表数组作为参数列表（arguments）。
 
 - `call` 和 `apply` 之间唯一的语法区别是，`call` 期望一个参数列表，而 `apply` 期望一个包含这些参数的类数组对象。
 
 - `apply` 只接受 **类数组**。
 
-### 18.3 函数绑定
-
-函数提供了一个内建方法 `bind`，它可以绑定 `this`。
+### 18.3 bind
 
 基本的语法是：
 
@@ -922,7 +920,7 @@ func.apply(context, args)
 let boundFunc = func.bind(context);
 ```
 
-`func.bind(context)` 的结果是一个特殊的类似于函数的“外来对象（exotic object）”，它可以像函数一样被调用，并且透明地（transparently）将调用传递给 `func` 并设定 `this=context`。
+改变`func`函数的this指向，并放回一个新的函数进行调用。
 
 我们不仅可以绑定 `this`，还可以绑定参数（arguments）。虽然很少这么做，但有时它可以派上用场。
 
@@ -945,8 +943,6 @@ alert( double(5) ); // = mul(2, 5) = 10
 ```
 
 对 `mul.bind(null, 2)` 的调用创建了一个新函数 `double`，它将调用传递到 `mul`，将 `null` 绑定为上下文，并将 `2` 绑定为第一个参数。并且，参数（arguments）均被“原样”传递。
-
-
 
 ## 19. 属性标志和属性描述符
 
@@ -1311,6 +1307,8 @@ import(modulePath)
 
 代理提供了一种独特的方法，可以在最底层更改或调整现有对象的行为。但是，它并不完美。有局限性。
 
+对原型对象进行代理，通过代理对象操作原始对象，我们可以在进行操作原始对象前进行一系列其他操作。
+
 代理和原始对象是不同的对象。
 
 语法：
@@ -1453,7 +1451,20 @@ let result = eval(code);
 
 那么，`this` 的信息是怎么从第一部分传递到第二部分的呢？
 
-如果我们将这些操作放在不同的行，`this` 必定是会丢失的：
+如果我们将这些操作放在不同的行，`this` 必定是会丢失的，例如
+
+~~~js
+const obj = {
+	name:"renjia",
+	to(){
+		console.log(this.name)
+	}
+}
+obj.to() //name=renjia
+
+const callfun=obj.to   // 这里就相当于在定义callfun函数，只是把obj.to的函数体赋给callfun变量了。
+call() //nmae=undefined
+~~~
 
 Reference Type 是 ECMA 中的一个“规范类型”。我们不能直接使用它，但它被用在 JavaScript 语言内部。
 
@@ -1466,305 +1477,6 @@ Reference Type 的值是一个三个值的组合 `(base, name, strict)`，其中
 
 
 ## 26. 其他文章
-
-### 26.1 二进制数据，文件
-
-#### 26.1.1 ArrayBuffer，二进制数组
-
-在 Web 开发中，当我们处理文件时（创建，上传，下载），经常会遇到二进制数据。另一个典型的应用场景是图像处理。
-
-不过，在 JavaScript 中有很多种二进制数据格式，会有点容易混淆。仅举几个例子：
-
-- `ArrayBuffer`，`Uint8Array`，`DataView`，`Blob`，`File` 及其他。
-
-**基本的二进制对象是 `ArrayBuffer` —— 对固定长度的连续内存空间的引用。**
-
-我们这样创建它：
-
-```javascript
-let buffer = new ArrayBuffer(16); // 创建一个长度为 16 的 buffer
-alert(buffer.byteLength); // 16
-```
-
-它会分配一个 16 字节的连续内存空间，并用 0 进行预填充。
-
-**`ArrayBuffer` 不是某种东西的数组**
-
-让我们先澄清一个可能的误区。`ArrayBuffer` 与 `Array` 没有任何共同之处：
-
-- 它的长度是固定的，我们无法增加或减少它的长度。
-- 它正好占用了内存中的那么多空间。
-- 要访问单个字节，需要另一个“视图”对象，而不是 `buffer[index]`。
-
-`ArrayBuffer` 是一个内存区域。它里面存储了什么？无从判断。只是一个原始的字节序列。
-
-**如要操作 `ArrayBuffer`，我们需要使用“视图”对象。**
-
-视图对象本身并不存储任何东西。它是一副“眼镜”，透过它来解释存储在 `ArrayBuffer` 中的字节。
-
-例如：
-
-- **`Uint8Array`** —— 将 `ArrayBuffer` 中的每个字节视为 0 到 255 之间的单个数字（每个字节是 8 位，因此只能容纳那么多）。这称为 “8 位无符号整数”。
-- **`Uint16Array`** —— 将每 2 个字节视为一个 0 到 65535 之间的整数。这称为 “16 位无符号整数”。
-- **`Uint32Array`** —— 将每 4 个字节视为一个 0 到 4294967295 之间的整数。这称为 “32 位无符号整数”。
-- **`Float64Array`** —— 将每 8 个字节视为一个 `5.0x10-324` 到 `1.8x10308` 之间的浮点数。
-
-~~~javascript
-let buffer = new ArrayBuffer(16); // 创建一个长度为 16 的 buffer
-
-let view = new Uint32Array(buffer); // 将 buffer 视为一个 32 位整数的序列
-
-alert(Uint32Array.BYTES_PER_ELEMENT); // 每个整数 4 个字节
-
-alert(view.length); // 4，它存储了 4 个整数
-alert(view.byteLength); // 16，字节中的大小
-
-// 让我们写入一个值
-view[0] = 123456;
-
-// 遍历值
-for(let num of view) {
-  alert(num); // 123456，然后 0，0，0（一共 4 个值）
-}
-~~~
-
-#### 26.1.2 TextDecoder 和 TextEncoder
-
-##### 26.1.2.1 TextDecoder
-
-内建的 [TextDecoder](https://encoding.spec.whatwg.org/#interface-textdecoder) 对象在给定缓冲区（buffer）和编码格式（encoding）的情况下，允许将值读取为实际的 JavaScript 字符串。
-
-首先我们需要创建：
-
-```javascript
-let decoder = new TextDecoder([label], [options]);
-```
-
-- **`label`** —— 编码格式，默认为 `utf-8`，但同时也支持 `big5`，`windows-1251` 等许多其他编码格式。
-- `options` 可选对象：
-  - **`fatal`** —— 布尔值，如果为 `true` 则为无效（不可解码）字符抛出异常，否则（默认）用字符 `\uFFFD` 替换无效字符。
-  - **`ignoreBOM`** —— 布尔值，如果为 `true` 则 BOM（可选的字节顺序 Unicode 标记），很少需要使用。
-
-……然后解码：
-
-```javascript
-let str = decoder.decode([input], [options]);
-```
-
-- **`input`** —— 要被解码的 `BufferSource`。
-- `options`可选对象：
-  - **`stream`** —— 对于解码流，为 true，则将传入的数据块（chunk）作为参数重复调用 `decoder`。在这种情况下，多字节的字符可能偶尔会在块与块之间被分割。这个选项告诉 `TextDecoder` 记住“未完成”的字符，并在下一个数据块来的时候进行解码。
-
-例如：
-
-```javascript
-let uint8Array = new Uint8Array([72, 101, 108, 108, 111]);
-
-alert( new TextDecoder().decode(uint8Array) ); // Hello
-```
-
-##### 26.1.2.2 TextEncoder
-
-[TextEncoder](https://encoding.spec.whatwg.org/#interface-textencoder) 做相反的事情 —— 将字符串转换为字节。
-
-语法为：
-
-```javascript
-let encoder = new TextEncoder();
-```
-
-只支持 `utf-8` 编码。
-
-它有两种方法：
-
-- **`encode(str)`** —— 从字符串返回 `Uint8Array`。
-- **`encodeInto(str, destination)`** —— 将 `str` 编码到 `destination` 中，该目标必须为 `Uint8Array`。
-
-```javascript
-let encoder = new TextEncoder();
-
-let uint8Array = encoder.encode("Hello");
-alert(uint8Array); // 72,101,108,108,111
-```
-
-#### 26.2 Blob
-
-构造函数的语法为：
-
-```javascript
-new Blob(blobParts, options);
-```
-
-- **`blobParts`** 是 `Blob`/`BufferSource`/`String` 类型的值的数组。
-- `options`可选对象：
-  - **`type`** —— `Blob` 类型，通常是 MIME 类型，例如 `image/png`，
-  - **`endings`** —— 是否转换换行符，使 `Blob` 对应于当前操作系统的换行符（`\r\n` 或 `\n`）。默认为 `"transparent"`（啥也不做），不过也可以是 `"native"`（转换）。
-
-
-
-##### 26.2.1 Blob 用作 URL
-
-Blob 可以很容易用作 `<a>`、`<img>` 或其他标签的 URL，来显示它们的内容。
-
-多亏了 `type`，让我们也可以下载/上传 `Blob` 对象，而在网络请求中，`type` 自然地变成了 `Content-Type`。
-
-让我们从一个简单的例子开始。通过点击链接，你可以下载一个具有动态生成的内容为 `hello world` 的 `Blob` 的文件：
-
-```javascript
-<!-- download 特性（attribute）强制浏览器下载而不是导航 -->
-<a download="hello.txt" href='#' id="link">Download</a>
-
-<script>
-let blob = new Blob(["Hello, world!"], {type: 'text/plain'});
-
-link.href = URL.createObjectURL(blob);
-```
-
-
-
-##### 26.2.2 Blob 转换为 base64
-
-这种编码将二进制数据表示为一个由 0 到 64 的 ASCII 码组成的字符串，非常安全且“可读“。更重要的是 —— 我们可以在 “data-url” 中使用此编码。
-
-[“data-url”](https://developer.mozilla.org/zh/docs/Web/http/Data_URIs) 的形式为 `data:[<mediatype>][;base64],<data>`。我们可以在任何地方使用这种 url，和使用“常规” url 一样。
-
-下面是下载 `Blob` 的示例，这次是通过 base-64：
-
-```javascript
-let link = document.createElement('a');
-link.download = 'hello.txt';
-
-let blob = new Blob(['Hello, world!'], {type: 'text/plain'});
-
-let reader = new FileReader();
-reader.readAsDataURL(blob); // 将 Blob 转换为 base64 并调用 onload
-
-reader.onload = function() {
-  link.href = reader.result; // data url
-  link.click();
-};
-```
-
-这两种从 `Blob` 创建 URL 的方法都可以用。但通常 `URL.createObjectURL(blob)` 更简单快捷。
-
-##### 26.2.3 **File** 和 FileReader
-
-[File](https://www.w3.org/TR/FileAPI/#dfn-file) 对象继承自 `Blob`，并扩展了与文件系统相关的功能。
-
-有两种方式可以获取它。
-
-第一种，与 `Blob` 类似，有一个构造器：
-
-```javascript
-new File(fileParts, fileName, [options])
-```
-
-- **`fileParts`** —— Blob/BufferSource/String 类型值的数组。
-- **`fileName`** —— 文件名字符串。
-- `options` 可选对象：
-  - **`lastModified`** —— 最后一次修改的时间戳（整数日期）。
-
-第二种，更常见的是，我们从 `<input type="file">` 或拖放或其他浏览器接口来获取文件。在这种情况下，file 将从操作系统（OS）获得 this 信息。
-
-由于 `File` 是继承自 `Blob` 的，所以 `File` 对象具有相同的属性，附加：
-
-- `name` —— 文件名，
-- `lastModified` —— 最后一次修改的时间戳。
-
-这就是我们从 `<input type="file">` 中获取 `File` 对象的方式：
-
-```markup
-<input type="file" onchange="showFile(this)">
-
-<script>
-function showFile(input) {
-  let file = input.files[0];
-
-  alert(`File name: ${file.name}`); // 例如 my.png
-  alert(`Last modified: ${file.lastModified}`); // 例如 1552830408824
-}
-</script>
-```
-
-**请注意：**
-
-输入（input）可以选择多个文件，因此 `input.files` 是一个类数组对象。这里我们只有一个文件，所以我们只取 `input.files[0]`。
-
-###### 
-
-[FileReader](https://www.w3.org/TR/FileAPI/#dfn-filereader) 是一个对象，其唯一目的是从 `Blob`（因此也从 `File`）对象中读取数据。
-
-它使用事件来传递数据，因为从磁盘读取数据可能比较费时间。
-
-构造函数：
-
-```javascript
-let reader = new FileReader(); // 没有参数
-```
-
-主要方法:
-
-- **`readAsArrayBuffer(blob)`** —— 将数据读取为二进制格式的 `ArrayBuffer`。
-- **`readAsText(blob, [encoding])`** —— 将数据读取为给定编码（默认为 `utf-8` 编码）的文本字符串。
-- **`readAsDataURL(blob)`** —— 读取二进制数据，并将其编码为 base64 的 data url。
-- **`abort()`** —— 取消操作。
-
-`read*` 方法的选择，取决于我们喜欢哪种格式，以及如何使用数据。
-
-- `readAsArrayBuffer` —— 用于二进制文件，执行低级别的二进制操作。对于诸如切片（slicing）之类的高级别的操作，`File` 是继承自 `Blob` 的，所以我们可以直接调用它们，而无需读取。
-- `readAsText` —— 用于文本文件，当我们想要获取字符串时。
-- `readAsDataURL` —— 当我们想在 `src` 中使用此数据，并将其用于 `img` 或其他标签时。正如我们在 [Blob](https://zh.javascript.info/blob) 一章中所讲的，还有一种用于此的读取文件的替代方案：`URL.createObjectURL(file)`。
-
-读取过程中，有以下事件：
-
-- `loadstart` —— 开始加载。
-- `progress` —— 在读取过程中出现。
-- `load` —— 读取完成，没有 error。
-- `abort` —— 调用了 `abort()`。
-- `error` —— 出现 error。
-- `loadend` —— 读取完成，无论成功还是失败。
-
-读取完成后，我们可以通过以下方式访问读取结果：
-
-- `reader.result` 是结果（如果成功）
-- `reader.error` 是 error（如果失败）。
-
-使用最广泛的事件无疑是 `load` 和 `error`。
-
-这是一个读取文件的示例：
-
-```javascript
-<input type="file" onchange="readFile(this)">
-
-<script>
-function readFile(input) {
-  let file = input.files[0];
-
-  let reader = new FileReader();
-
-  reader.readAsText(file);
-
-  reader.onload = function() {
-    console.log(reader.result);
-  };
-
-  reader.onerror = function() {
-    console.log(reader.error);
-  };
-
-}
-</script>
-```
-
-**`FileReader` 用于 blob**
-
-正如我们在 [Blob](https://zh.javascript.info/blob) 一章中所提到的，`FileReader` 不仅可读取文件，还可读取任何 blob。
-
-我们可以使用它将 blob 转换为其他格式：
-
-- `readAsArrayBuffer(blob)` —— 转换为 `ArrayBuffer`，
-- `readAsText(blob, [encoding])` —— 转换为字符串（`TextDecoder` 的一个替代方案），
-- `readAsDataURL(blob)` —— 转换为 base64 的 data url。
 
 ### 26.2 网络请求
 
