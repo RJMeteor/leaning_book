@@ -110,9 +110,16 @@ export default {
             "Java基础": {
                 "基础": "/java/7t92c9nx/",
                 "IO流": "/java/i3dtdkfy/",
-                "JVM": "/java/jpeeg4ew/",
                 "设计模式": "/java/przrwqhp/",
-                "高并发": "/java/9eerap60/",
+                "JVM": {
+						"JVM内存模型": "/java/jvmmodel/",
+						"对象的实例化": "/java/instance/",
+					},
+                "高并发": {
+						"多线程": "/java/thread/",
+						"Java中CAS机制": "/java/bincas/",
+						"Java中的AQS同步队列": "/java/binaqs/",
+					},
             },
             "JavaFx 构建富客户端应用程序": {
                 "基础": "/java/lmmbxrp9/",

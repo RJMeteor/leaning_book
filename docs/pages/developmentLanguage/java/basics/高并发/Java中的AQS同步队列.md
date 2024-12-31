@@ -1,5 +1,5 @@
 ---
-title: Java中CAS机制
+title: Java中的AQS同步队列
 author: RJMeteor
 createTime: 2024/11/08 04:44:34
 permalink: /java/binaqs/
