@@ -166,6 +166,12 @@ uView UI，是uni-app生态最优秀的UI框架，全面的组件和便捷的工
 
 ![](./images/uviewui.png)
 
+### 7.7 shadcn/ui (React)
+
+shadcn/ui 是一个爆火的开源UI组件库，它允许用户将单个UI组件的源代码直接下载到项目中，提供了更大的灵活性和定制空间。它不是一个传统的组件库，而是一个可以复制并粘贴到应用中的可重用组件的集合。
+
+![](./images/shadcnui.png)
+
 ## 8. 小组件
 
 ### 8.1 Lucide [图标库]（React）

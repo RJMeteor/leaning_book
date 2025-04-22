@@ -8,6 +8,18 @@
 
 下载Termux网址：https://github.com/termux/termux-app/releases
 
+::: tip 其他应用
+
+~~~bash
+pkg install vim lsof net-tools
+~~~
+
+- `vim`：编辑文件
+- `lsof`： 查看端口所在pid(进程Id)，如`lsof -i :8022`
+- `net-tools`：是来查看手机后台监听的端口号有哪些，如`netstat -tuln`
+
+:::
+
 
 
 ## 1.1 自启动
@@ -167,11 +179,11 @@ ssh u0_a197@192.168.1.6 -p 8022
 # 3. 修改镜像源
 
 ~~~bash
-sed -i 's@^\(deb.*stable main\)$@#\1\ndeb https://mirrors.aliyun.com/termux/termux-packages-24 stable main@' $PREFIX/etc/apt/sources.list
+sed -i 's@^\(deb.*stable main\)$@#\1\ndeb https://mirrors.tuna.tsinghua.edu.cn/termux/termux-packages-24 stable main@' $PREFIX/etc/apt/sources.list
 
-sed -i 's@^\(deb.*games stable\)$@#\1\ndeb https://mirrors.aliyun.com/termux/game-packages-24 games stable@' $PREFIX/etc/apt/sources.list.d/game.list
+sed -i 's@^\(deb.*games stable\)$@#\1\ndeb https://mirrors.tuna.tsinghua.edu.cn/termux/game-packages-24 games stable@' $PREFIX/etc/apt/sources.list.d/game.list
 
-sed -i 's@^\(deb.*science stable\)$@#\1\ndeb https://mirrors.aliyun.com/termux/science-packages-24 science stable@' $PREFIX/etc/apt/sources.list.d/science.list
+sed -i 's@^\(deb.*science stable\)$@#\1\ndeb https://mirrors.tuna.tsinghua.edu.cn/termux/science-packages-24 science stable@' $PREFIX/etc/apt/sources.list.d/science.list
 
 pkg update
 ~~~
@@ -207,7 +219,7 @@ uname -a
 1.解压：
 
 ~~~bash
-tar -xvzf ngrok-v3-stable-linux-amd64.tgz
+tar -xvzf ngrok-v3-stable-linux-arm64.tgz
 ~~~
 
 2.授予执行授权：
@@ -305,8 +317,9 @@ Ngrok 的免费版有一些限制，其中之一是每个账户同时只能运�
 在`ngrok.yml`文件配置多个资源，这样不同隧道共用同一个代理。
 
 ~~~yml
-authtoken: your_authtoken
-
+version: "3"
+agent:
+    authtoken: 2BeZFB4vuO4yFTCZ9FH7XLeETEr_2Nkv8QwrxGFbQyZmHX4eq
 tunnels:
   ssh:
     proto: tcp
@@ -331,10 +344,10 @@ ngrok --config ~/.ngrok2/ngrok.yml start http ssh
 在 `ngrok.yml` 文件中，你可以定义多个隧道，并为每个隧道指定自定义域名。以下是一个示例配置文件：
 
 ```yaml
-authtoken: your_authtoken
-
+version: "3"
+agent:
+    authtoken: 2BeZFB4vuO4yFTCZ9FH7XLeETEr_2Nkv8QwrxGFbQyZmHX4eq
 tunnels:
-
   http:
     proto: http
     addr: 8080
@@ -357,5 +370,170 @@ tunnels:
 使用以下命令启动 Ngrok 隧道：
 
 ```bash
-ngrok --config ~/.ngrok2/ngrok.yml start http
+ngrok --config ~/.ngrok/ngrok.yml start http
 ```
+
+
+
+
+
+# 5. 安装其他应用
+
+## 5.1 安装MySQL数据库
+
+~~~
+pkg install mariadb
+~~~
+
+1. 运行mysql
+
+~~~
+mysqld
+~~~
+
+2. 进入mysql控制台，(root刚开始没有密码)
+
+~~~
+mysql -u root -p
+~~~
+
+3. 设置密码
+
+~~~
+use mysql;
+set password for ‘root’@‘localhost’ = password(‘123456’);
+flush priviles;
+~~~
+
+4. 给远程用户授权
+
+~~~
+CREATE USER 'myuser'@'%' IDENTIFIED BY 'mypassword';
+GRANT ALL PRIVILEGES ON *.* TO 'myuser'@'%';
+FLUSH PRIVILEGES;
+~~~
+
+5. 远程用户连接
+
+~~~
+mysql -u myuer -p  -h 127.0.0.1 -P 3306
+~~~
+
+## 5.2 安装nodejs
+
+~~~
+pkg install nodejs-lts
+~~~
+
+1. 设置npm远程淘宝镜像
+
+~~~
+npm config set registry https://registry.npmmirror.com
+~~~
+
+## 5.3 nginx
+
+~~~
+pkg install nginx
+~~~
+
+1. 查看安装nginx产生的文件路径
+
+~~~
+pkg files nginx
+~~~
+
+2. 软链接web目录和配置目录
+
+~~~bash
+#nginx 配置目录
+ln -s /data/data/com.termux/files/usr/etc/nginx /data/data/com.termux/files/home/web/nginx/config 
+#nginx html目录
+ln -s /data/data/com.termux/files/usr/share/nginx/html /data/data/com.termux/files/home/web/nginx/html 
+~~~
+
+3. 访问web页面
+
+~~~
+http://localhost:8080
+~~~
+
+
+
+## 5.4 安装minio
+
+~~~bash
+pkg install minio
+~~~
+
+1. MinIO 需要一个目录来存储对象数据。创建一个目录并设置适当的权限：
+
+~~~bash
+mkdir -p /data/data/com.termux/files/home/minio-data
+~~~
+
+2. 启动之前设置环境变量，修改用户名和密码
+
+~~~sh
+export MINIO_ACCESS_KEY=your_access_key
+export MINIO_SECRET_KEY=your_secret_key
+~~~
+
+3. 启动 MinIO 服务器，这里通过nohup是为了让minio在后台启动不占用控制台，并且关闭窗口不会退出服务
+
+~~~bash
+nohup minio server /data/data/com.termux/files/home/minio-data > minio.log 2>&1 &
+~~~
+
+4. 访问web页面
+
+~~~bash
+http://localhost:9000
+~~~
+
+## 5.5 安装Redis
+
+~~~bash
+pkg install redis
+~~~
+
+1. 安装好后修改redis的配置文件
+
+~~~bash
+vim /data/data/com.termux/files/usr/etc/redis.conf
+~~~
+
+2. 主要修改配置文件中的下面几项：
+
+~~~txt
+bind 0.0.0.0 ::1  # 这个配置是可以所有ip都可访问redis
+daemonize yes     # 可以让redis在后台启动
+protected-mode no # 关闭安全模式，只有这样才能远程连接redis
+~~~
+
+3. 启动redis
+
+~~~bash
+redis-server /data/data/com.termux/files/usr/etc/redis.conf 
+~~~
+
+可以通过redis的图形化工具进行连接验证，端口默认6379，ip地址还是手机的ip地址
+
+## 5.6 安装gitea
+
+~~~
+pkg install gitea
+~~~
+
+启动服务
+
+~~~
+gitea
+~~~
+
+访问web页面
+
+~~~
+http://localhost:3000
+~~~
+
