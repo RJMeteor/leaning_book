@@ -354,7 +354,7 @@ tunnels:
     hostname: evident-exact-maggot.ngrok-free.app
 ```
 
-![](C:\Users\30293\AppData\Roaming\Typora\typora-user-images\image-20250110224336472.png)
+![](./images/domain.png)
 
 >  2.解释配置文件
 
