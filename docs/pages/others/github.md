@@ -16,11 +16,11 @@ ssh-keygen -t rsa -C "your_email@example.com"
 
 ### 2. 登录github账号，进入设置面板，添加SSH授权
 
-<span style="display:flex;justify-content:center;">![feiji.svg](/github/setting_ssh1.png)</span>
+<span style="display:flex;justify-content:center;">![feiji.svg](./images/setting_ssh1.png)</span>
 
-<span style="display:flex;justify-content:center;">![feiji.svg](/github/setting_ssh2.png)</span>
+<span style="display:flex;justify-content:center;">![feiji.svg](./images/setting_ssh2.png)</span>
 
-<span style="display:flex;justify-content:center;">![feiji.svg](/github/setting_ssh3.png)</span>
+<span style="display:flex;justify-content:center;">![feiji.svg](./images/setting_ssh3.png)</span>
 
 ### 3. 用SSH地址拉去代码
 

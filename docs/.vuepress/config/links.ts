@@ -203,7 +203,7 @@ export default {
             "Shell脚本": "/linux/shellscript/",
         },
         "Docker 容器化技术": {
-            "基础": "/linux/dockerbasic/"
+            "安装Docker": "/linux/dockerbasic/"
         },
     }
 }
