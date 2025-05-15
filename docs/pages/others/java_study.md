@@ -206,3 +206,26 @@ https://2pdf.com/zh/convert-jpg-to-pdf/
 - PvmTransition、PvmActivity等
 
   [activiti源码学习之pvm篇 (360doc.com)](http://www.360doc.com/content/15/1225/10/5054188_522969354.shtml)
+
+## AI
+
+- [讯飞星火](https://xinghuo.xfyun.cn/sparkapi?ch=bytg_xhapi_ty1&bd_vid=10963235115013357968)
+- [阿里云百炼](https://bailian.console.aliyun.com/?spm=5176.20960838.nav-v2-dropdown-menu-0.d_main_0_1.72a02868WBiWsq&tab=home&scm=20140722.M_10773051._.V_1#/home)
+
+## MCP 
+
+### 平台推荐
+
+- https://modelcontextprotocol.io/introduction（官网）
+- [魔塔社区（推荐）](https://modelscope.cn/home)
+- [阿里云百炼](https://bailian.console.aliyun.com/?tab=mcp#/mcp-market)
+- [腾讯云开发](https://bailian.console.aliyun.com/?tab=mcp#/mcp-market)
+- [smithery](https://smithery.ai/)
+- [pulsemcp（推荐）](https://www.pulsemcp.com/)
+
+### 上手
+
+- [Spring AI Alibaba](https://java2ai.com/?spm=5176.29160081.0.0.2856aa5cEXDRHt)
+- [Spring AI 支持 Mcp协议了，通过Mcp集成本地文件管理](https://juejin.cn/post/7474220344699666458)
+- [SpringBoot搭建MCPServer](https://www.cnblogs.com/dev-yze/p/18832122)
+
