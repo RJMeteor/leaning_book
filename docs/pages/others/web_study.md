@@ -439,6 +439,19 @@ NProgress 是一个轻量级的进度条组件,使用简便,可以很方便集�
 
 ![](./images/oml2d.png)
 
+### 9.20 Anime.js [强大的js动画库]
+
+官网：https://github.com/juliangarnier/anime/
+
+`Anime.js`是一个专注于创建各种动画效果的 `JavaScript` 库。它具有以下显著特点：
+
+- 轻量级：不会给项目带来过多的负担，确保页面加载和运行的高效性。
+- 强大的 `API`：能够轻松地操作 `CSS` 属性、`SVG`、`DOM` 属性以及 `JavaScript` 对象，满足多样化的动画需求。
+
+其应用场景广泛，无论是简单的元素移动、旋转，还是复杂的 `SVG` 动画、渐变效果等，都能通过 `Anime.js` 实现。
+
+![](./images/Anime.png)
+
 ## 10. 跨平台
 
 ### 10.1 Uni App
