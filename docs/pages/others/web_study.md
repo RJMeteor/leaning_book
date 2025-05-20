@@ -495,6 +495,31 @@ Tauri 是一个构建适用于所有主流桌面和移动平台的轻快二进�
 
 ![](./images/vercel.png)
 
+### 11.2 Netlify
+
+官网：https://app.netlify.com/
+
+`Netlify` 是一个提供静态资源网络托管的综合平台，一个直观的基于Git的工作流和强大的无服务器平台，用于构建、部署和协作web应用程序，即能够将托管 GitHub，GitLab 等网站上的 Jekyll，Hexo，Hugo 等代码自动编译并生成静态网站。
+
+**Netlify 功能介绍**
+
+- 1.内置 CI/CD 支持自动构建拉取代码仓库，每次提交的自动构建并发布预览
+- 2.能够托管服务免费 CDN
+- 3.能够绑定自定义域名
+- 4.能够启用免费的TLS证书启用HTTPS
+- 5.提供 Webhooks 和 API
+- 6.通过内置应用程序添加动态功能
+
+::: tip 重大声明
+
+永久免费！个人项目无限量（100GB流量/月，300分钟构建时间，500个项目独立部署）
+零运维！自动HTTPS、自动CDN、自动清理缓存
+开箱即用：表单处理、身份验证、Serverless函数一键开启
+无缝集成：支持GitHub、GitLab、Bitbucket自动部署
+装X必备：送xxx.netlify.app域名，支持绑定自定义域名
+
+:::
+
 
 
 
