@@ -9,6 +9,7 @@ import {blog} from "vuepress-theme-hope";
 
 //  获取动态部署类型site：npm run build --site=github|netlify
 const baseUrl = ((type) => {
+    if (type==undefined) return undefined
     const types = {
         netlify: {
             baseUrl: undefined
