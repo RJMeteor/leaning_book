@@ -9,17 +9,18 @@ import {blog} from "vuepress-theme-hope";
 
 //  获取动态部署类型site：npm run build --site=github|netlify
 const baseUrl = ((type) => {
-    if (type==undefined) return undefined
     const types = {
         netlify: {
-            baseUrl: undefined
+            baseUrl: "/"
         },
         github: {
             baseUrl: "/leaning_book/"
         }
     }
-    return types[type]
+    if (type == undefined) return types.netlify.baseUrl
+    return (type = types[type].baseUrl) ? type : types.netlify.baseUrl
 })(process.env.npm_config_site)
+
 
 export default defineUserConfig({
     head: [
