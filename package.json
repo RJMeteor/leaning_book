@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "dev": "vuepress --port=8081 dev docs",
+    "dev": "vuepress --port=8081  dev docs",
     "build": "vuepress build docs"
   },
   "author": "",
@@ -20,5 +20,8 @@
     "vuepress": "^2.0.0-rc.14",
     "vuepress-plugin-search-pro": "^2.0.0-rc.59",
     "vuepress-theme-hope": "^2.0.0-rc.59"
+  },
+  "config": {
+    "renjia": "yes"
   }
 }

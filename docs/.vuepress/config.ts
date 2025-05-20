@@ -7,6 +7,19 @@ import {commentPlugin} from "@vuepress/plugin-comment";
 import {blog} from "vuepress-theme-hope";
 
 
+//  获取动态部署类型site：npm run build --site=github|netlify
+const baseUrl = ((type) => {
+    const types = {
+        netlify: {
+            baseUrl: undefined
+        },
+        github: {
+            baseUrl: "/leaning_book/"
+        }
+    }
+    return types[type]
+})(process.env.npm_config_site)
+
 export default defineUserConfig({
     head: [
         [
@@ -26,7 +39,7 @@ export default defineUserConfig({
     ],
     // 请不要忘记设置默认语言
     // base: "/leaning_book/",
-    // base: "",
+    base: baseUrl,
     lang: 'zh-CN',
     // dest:"src/.vuepress/dist",
     bundler: viteBundler({
