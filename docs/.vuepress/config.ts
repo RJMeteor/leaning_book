@@ -6,7 +6,6 @@ import * as path from "node:path";
 import {commentPlugin} from "@vuepress/plugin-comment";
 import {blog} from "vuepress-theme-hope";
 
-
 //  获取动态部署类型site：npm run build --site=github|netlify
 const baseUrl = ((type) => {
     const types = {
@@ -18,7 +17,7 @@ const baseUrl = ((type) => {
         }
     }
     if (type == undefined) return types.netlify.baseUrl
-    return (type = types[type].baseUrl) ? type : types.netlify.baseUrl
+    return  types[type].baseUrl ? types[type].baseUrl : types.netlify.baseUrl
 })(process.env.npm_config_site)
 
 
